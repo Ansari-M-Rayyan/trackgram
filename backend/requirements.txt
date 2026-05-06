@@ -1,11 +1,11 @@
 fastapi
 uvicorn
 python-multipart
-textblob
-transformers
-scikit-learn
+requests
 torch
 torchvision
+transformers
+huggingface_hub
+scikit-learn
+numpy
 pillow
-requests
-instaloader

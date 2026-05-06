@@ -1,0 +1,20 @@
+# --- Top Level ---
+node_modules/
+.venv/
+package-lock.json
+
+# --- Backend ---
+backend/venv/
+backend/__pycache__/
+backend/*.json
+backend/.env
+
+# --- Frontend ---
+frontend/node_modules/
+frontend/dist/
+frontend/package-lock.json
+
+# --- General System Files ---
+.DS_Store
+Thumbs.db
+.vscode/
