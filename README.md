@@ -1,26 +1,32 @@
 # TrackGram 🔎
-### Tactical OSINT Intelligence & Behavioral Profiling Dashboard
 
-**TrackGram** is a sophisticated Open Source Intelligence (OSINT) platform designed for deep-dive analysis of Instagram profiles. By utilizing a "Bring Your Own Data" (BYOD) architecture, TrackGram bypasses traditional scraping limitations. It transforms raw metadata into actionable intelligence using Natural Language Processing (NLP), Computer Vision, and Behavioral Heuristics.
-
+## Advanced OSINT Forensic Profiling & Neural Intelligence Dashboard
+#### TrackGram is a next-generation Digital Forensic and Open Source Intelligence (OSINT) suite. By combining a Bring Your Own Data (BYOD) architecture with local Large Language Models (LLMs), TrackGram generates comprehensive behavioral and environmental dossiers without ever exposing your network identity to the target platform.
 ---
 
 ## 🚀 Key Features
 
-### 📡 Tactical Data Extraction
-* **Ghost Extractor (Bookmarklet):** A stealthy, client-side extraction tool that leverages the user's active browser session to bypass Instagram's firewall and export profile data as a JSON payload.
-* **Air-Gapped Analysis:** No direct connection between the server and Instagram, ensuring your IP address remains clean and untraceable.
+### 📡 Deep-Stream Interceptor (Ghost Extractor v2)
+#### High-Fidelity Interception: A specialized client-side tool that captures rich API metadata, including hidden Felix Video Timelines and deep link arrays often missed by standard scrapers.
 
-### 🧠 AI-Driven Synthesis
-* **Bot Scorer (Random Forest):** Uses machine learning to evaluate followers, following ratios, and posting volume to assign a "Bot Probability" score.
-* **NLP Intent Modeling (RoBERTa):** Zero-shot classification of captions to detect themes like financial scams, political influence, or promotional spam.
-* **Linguistic Sentiment Analysis:** Maps the emotional tone and "vibe" of the target's communication over time.
+#### Privacy-First Extraction: Leverages active browser sessions to acquire data securely, bypassing advanced bot detection and TLS fingerprinting.
 
-### 📊 Intelligence Sections
-* **A. Account Metadata:** Core identifiers including Internal Numeric IDs and bio-link tracking.
-* **B. Content Analysis:** Classification of media types (Reels vs. Images) and timeline continuity heuristics (detecting deleted content).
-* **C. Behavioral Profiling:** "Pattern of Life" mapping, detecting peak activity hours and automation spikes.
-* **D. Network Mapping:** Visualization of most-frequently tagged accounts and hashtags to identify the target's primary circle of influence.
+### 🧠 Local Neural Engine (Llama 3.2)
+#### Zero-Hallucination Intelligence: Powered by locally hosted LLMs via Ollama. It performs cold, clinical reasoning on target data with optimized parameters for maximum factual reliability.
+
+#### Forensic Reporting: Automatically synthesizes data into structured briefing documents: Identity & Environment, Network Coherence, and Forensic Verdicts.
+
+### 👁️ Digital Environment Recon (Vision AI)
+#### Scene Classification: Uses Vision Transformers (ViT) to analyze profile imagery, identifying professional environments such as PODIUMS, AUDITORIUMS, or PRESS CONFERENCES.
+
+#### Contextual Validation: Cross-references visual environmental tags against claimed professional identity to detect anomalies or deep-cover inconsistencies.
+
+### 📊 Intelligence Modules
+#### Network Associates Mapping: Deep extraction of @mentions across all media types (Posts, Reels, IGTV) to map high-value connections and institutional affiliations.
+
+#### Thematic Topic Clustering: Analyzes hashtag frequency and caption semantics to identify the target's primary narrative and circle of influence.
+
+#### Legitimacy Heuristics: A multi-factor scoring system evaluating verified status, follower-to-following ratios, and engagement continuity.
 
 ---
 
@@ -29,14 +35,14 @@
 **Frontend:**
 * React.js (Vite)
 * Tailwind CSS (Dashboard Styling)
-* Lucide React (Icons)
+* Lucide React
 
 **Backend:**
 * FastAPI (Python)
-* Uvicorn (Server)
-* Scikit-Learn (ML Classification)
-* HuggingFace Transformers (NLP Zero-Shot)
-* TextBlob (Sentiment Analysis)
+* Ollama (Llama 3.2)
+* HuggingFace Transformers (ViT)
+* NVIDIA CUDA
+* Pillow & Requests
 
 ---
 
@@ -45,6 +51,7 @@
 ### 1. Prerequisites
 * **Node.js:** v20+ recommended.
 * **Python:** 3.9+ recommended.
+* **Ollama:** Required for local LLM inference (Llama 3.2)
 
 ### 2. The Ghost Extractor (Bookmarklet Setup)
 To acquire data, you must create a browser bookmarklet. This allows you to extract data while logged into your own account, bypassing bot detection.
@@ -54,38 +61,21 @@ To acquire data, you must create a browser bookmarklet. This allows you to extra
 3. Paste the following into the **URL** field:
 
 ```javascript
-javascript:(function(){
-    let username = window.location.pathname.replace(/\//g, '');
-    if(!username) { alert('Go to an Instagram profile first!'); return; }
-    fetch('https://i.instagram.com/api/v1/users/web_profile_info/?username=' + username, {
-        headers: { 'x-ig-app-id': '936619743392459' }
-    })
-    .then(res => res.json())
-    .then(data => {
-        let payload = {
-            extracted_at: new Date().toISOString(),
-            data: data.data
-        };
-        let blob = new Blob([JSON.stringify(payload, null, 2)], {type: 'application/json'});
-        let a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = username + '_osint_payload.json';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    })
-    .catch(err => alert('Extraction blocked. Refresh the page and try again.'));
-})();
+javascript:(function(){     let username = window.location.pathname.replace(/\//g, '');     if(!username || username === 'reels' || username === 'explore') {          alert('Navigate to a specific Profile first!'); return;      }          console.log('%F0%9F%93%A1 TrackGram: Initiating Forensic Extraction for @' + username);      fetch(`https://i.instagram.com/api/v1/users/web_profile_info/?username=${username}`,%20{%20%20%20%20%20%20%20%20%20headers:%20{%20%20%20%20%20%20%20%20%20%20%20%20%20%27x-ig-app-id%27:%20%27936619743392459%27,%20%20%20%20%20%20%20%20%20%20%20%20%20%27sec-ch-ua-platform%27:%20%27%22Windows%22%27,%20%20%20%20%20%20%20%20%20%20%20%20%20%27User-Agent%27:%20navigator.userAgent%20%20%20%20%20%20%20%20%20}%20%20%20%20%20})%20%20%20%20%20.then(res%20=%3E%20{%20%20%20%20%20%20%20%20%20if(res.status%20===%20429)%20throw%20new%20Error(%27Rate%20limited.%20Wait%205%20mins.%27);%20%20%20%20%20%20%20%20%20if(!res.ok)%20throw%20new%20Error(%27Access%20Denied/Private%20Profile.%27);%20%20%20%20%20%20%20%20%20return%20res.json();%20%20%20%20%20})%20%20%20%20%20.then(json%20=%3E%20{%20%20%20%20%20%20%20%20%20let%20payload%20=%20{%20%20%20%20%20%20%20%20%20%20%20%20%20metadata:%20{%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20target:%20username,%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20extracted_at:%20new%20Date().toISOString(),%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20tool:%20%22TrackGram%20v2%20(RTX-Llama)%22%20%20%20%20%20%20%20%20%20%20%20%20%20},%20%20%20%20%20%20%20%20%20%20%20%20%20data:%20json.data%20%20%20%20%20%20%20%20%20};%20%20%20%20%20%20%20%20%20%20let%20blob%20=%20new%20Blob([JSON.stringify(payload,%20null,%202)],%20{type:%20%27application/json%27});%20%20%20%20%20%20%20%20%20let%20a%20=%20document.createElement(%27a%27);%20%20%20%20%20%20%20%20%20a.href%20=%20URL.createObjectURL(blob);%20%20%20%20%20%20%20%20%20a.download%20=%20`TG_Dossier_${username}_${Date.now()}.json`;%20%20%20%20%20%20%20%20%20document.body.appendChild(a);%20%20%20%20%20%20%20%20%20a.click();%20%20%20%20%20%20%20%20%20document.body.removeChild(a);%20%20%20%20%20%20%20%20%20console.log(%27%E2%9C%85%20Extraction%20Complete.%20File%20ready%20for%20Llama%20analysis.%27);%20%20%20%20%20})%20%20%20%20%20.catch(err%20=%3E%20alert(%27%E2%9D%8C%20TrackGram%20Error:%20%27%20+%20err.message));%20})();
 ```
 
 ### 3. Backend Setup
 ```bash
+# Ensure Ollama is running Llama 3.2
+ollama run llama3.2
+
 cd backend
-# Create a requirements.txt with the dependencies listed below
+# Install Python dependencies
 pip install -r requirements.txt
+# Launch the inference engine
 python main.py
 ```
-*The server will boot on `http://localhost:8000`. AI models will download on the first run.*
+*The server will boot on http://localhost:8000. Neural weights and Vision Transformers will initialize on the first run.*
 
 ### 4. Frontend Setup
 ```bash
@@ -93,7 +83,7 @@ cd frontend
 npm install
 npm run dev
 ```
-*The dashboard will boot on `http://localhost:5173`.*
+*The dashboard will boot.*
 
 ---
 
@@ -101,7 +91,7 @@ npm run dev
 
 1. **Extract:** Visit a public Instagram profile and click your `TrackGram Extractor` bookmark.
 2. **Inject:** Drag the resulting `.json` file into the TrackGram dashboard.
-3. **Analyze:** Review the tactical analysis synthesized by the AI models.
+3. **Analyze:** Review the tactical analysis synthesized by the AI models (Llama 3.2 & ViT).
 4. **Report:** Click **"Download PDF Report"** to export a formatted intelligence dossier.
 
 ---
@@ -112,14 +102,14 @@ Paste the following into your `backend/requirements.txt` file:
 fastapi
 uvicorn
 python-multipart
-textblob
-transformers
-scikit-learn
+requests
 torch
 torchvision
+transformers
+huggingface_hub
+scikit-learn
+numpy
 pillow
-requests
-pydantic
 ```
 
 ---
