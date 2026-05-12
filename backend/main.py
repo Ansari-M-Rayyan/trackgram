@@ -46,7 +46,7 @@ def get_deep_data(user_obj):
     
     # 1. Standard Posts
     timeline = user_obj.get("edge_owner_to_timeline_media", {}).get("edges", [])
-    # 2. Video/Reels ( Jaishankar uses these heavily )
+    # 2. Video/Reels 
     videos = user_obj.get("edge_felix_video_timeline", {}).get("edges", [])
     
     combined_nodes = timeline + videos
