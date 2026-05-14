@@ -1,7 +1,17 @@
 # TrackGram 🔎
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.12+](https://img.shields.io/badge/Python-3.12%2B-blue.svg)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688.svg)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/Frontend-React-61DAFB.svg)](https://reactjs.org/)
+[![Llama 3.2](https://img.shields.io/badge/AI-Llama_3.2-orange.svg)](https://ollama.com/)
+[![Vision Transformer](https://img.shields.io/badge/Vision-ViT-green.svg)](https://huggingface.co/google/vit-base-patch16-224)
+
 ## Advanced OSINT Forensic Profiling & Neural Intelligence Dashboard for Instagram
 #### TrackGram is a next-generation Digital Forensic and Open Source Intelligence (OSINT) suite. By combining a Bring Your Own Data (BYOD) architecture with local Large Language Models (LLMs), TrackGram generates comprehensive behavioral and environmental dossiers without ever exposing your network identity to the target platform.
+
+<img width="1396" height="647" alt="Dashboard" src="https://github.com/user-attachments/assets/2a8155d3-086f-48e3-a137-9502160a7e13" />
+
 ---
 
 ## 🚀 Key Features
