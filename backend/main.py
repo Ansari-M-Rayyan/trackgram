@@ -73,7 +73,7 @@ SYSTEM: You are a Lead Digital Forensic Analyst. Analyze this target dossier:
 
 TASK: Generate a professional Forensic Report.
 1. IDENTITY & ENVIRONMENT: Analyze bio and visual context. Explain if 'podium/stage' vision tags support their public office.
-2. NETWORK COHERENCE: Analyze if mentioned associates (like PMOIndia or foreign ministers) confirm their professional status.
+2. NETWORK COHERENCE: Analyze if mentioned associates confirm their professional status.
 3. FORENSIC VERDICT: Final reliability statement.
 
 FORMAT: Use ### headers. Be clinical and factual.
