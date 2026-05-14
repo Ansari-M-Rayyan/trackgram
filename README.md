@@ -1,6 +1,6 @@
 # TrackGram 🔎
 
-## Advanced OSINT Forensic Profiling & Neural Intelligence Dashboard
+## Advanced OSINT Forensic Profiling & Neural Intelligence Dashboard for Instagram
 #### TrackGram is a next-generation Digital Forensic and Open Source Intelligence (OSINT) suite. By combining a Bring Your Own Data (BYOD) architecture with local Large Language Models (LLMs), TrackGram generates comprehensive behavioral and environmental dossiers without ever exposing your network identity to the target platform.
 ---
 
